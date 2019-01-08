@@ -1,1 +1,193 @@
-HOLA
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Advanced JSON Viewer</title>
+    <link rel="stylesheet" href="stylo.css">
+    <script type="text/javascript" src="jq.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="storage.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://rawgit.com/vitmalina/w2ui/master/dist/w2ui.min.js"></script>
+    <!-- Include from a free CDN -->
+    <script src="https://cdn.rawgit.com/caldwell/renderjson/master/renderjson.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://rawgit.com/vitmalina/w2ui/master/dist/w2ui.min.css" />
+    <style>
+        .view-json-area {
+
+        }
+
+        #view-container {
+          text-shadow: none;
+          background: #303030;
+          padding: 1em;
+          height: 86vh;
+          overflow-y: auto;
+        }
+
+        .renderjson>span {
+          line-height: 20px;
+        }
+
+        .renderjson a {
+          text-decoration: none;
+          color: wheat;
+        }
+
+        .renderjson .disclosure {
+          color: crimson;
+          font-size: 150%;
+        }
+
+        .renderjson .syntax {
+          color: grey;
+        }
+
+        .renderjson .string {
+          color: red;
+        }
+
+        .renderjson .number {
+          color: #FF5722;;
+        }
+
+        .renderjson .boolean {
+          color: plum;
+        }
+
+        .renderjson .key {
+          color: #00bcd4f5;
+        }
+
+        .renderjson .keyword {
+          color: lightgoldenrodyellow;
+        }
+
+        .renderjson .object.syntax {
+          color: lightseagreen;
+        }
+
+        .renderjson .array.syntax {
+          color: lightsalmon;
+        }
+
+        .string {
+          color: #FF9800 !important;
+        }
+
+        #error-div {
+          position: absolute;
+          top: 25px;
+          right: 10px;
+          color: red;
+          font-size: 15px;
+        }
+
+        pre {
+          outline: none !important;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+
+      <div id="tabs" class="tab-parent"></div>
+
+      <div id="tab-content" style="height: 94vh; border: 1px solid #ddd; border-top: 0px;background: white;color: black;position: relative;">
+        <div class="features-area">
+          <div class="viewer">View</div>
+          <div class="format">Format</div>
+          <div class="compact">Compact</div>
+          <div class="clear-text" style="display: none;">Clear</div>
+          <div class="share-text">Share</div>
+          <div class="rename-tab">Rename Tab</div>
+          <div class="txt-tab-name" style="display: none;"><input type="text"></div>
+          <div class="about">About</div>
+          <div class="next-tab" title="Add New Tab">+</div>
+        </div>
+        <!-- <div id="tab-input-data" class="textinput-area"></div> -->
+        <textarea name="input-text" id="txt-json-expected" class="txtarea-inp"></textarea>
+        <div id="view-container" style="display: none;" class="view-json-area"></div>
+        <div id="error-div"></div>
+      </div>
+
+      <div style="text-align: center;padding: 5px;">Powered by <strong>Nature Technologies Pvt. Ltd.</strong></div>
+
+    </div>
+
+    <div id="dialogAbout" style="display: none;" title="About">
+      <div style="margin-top: 40px;">
+        Convert JSON string to readable format.
+        <br>
+        <br>
+        This application use following libraries:
+        <br>
+        <br>
+        For <strong>Tab View</strong> it uses <a href="http://w2ui.com/web/" style="outline: none;" target="_blank">W2UI</a>
+        <br>
+        For <strong>JSON View</strong> it uses <a href="http://caldwell.github.io/renderjson/" target="_blank">RenderJSON</a>
+        <br>
+        <br>
+        <br>
+        Fork this project at github <a href="https://github.com/ri3tykity/ri3tykity.github.io" target="_blank">Ri3tyKity</a>
+      </div>
+    </div>
+    
+    <script type="text/javascript">
+
+      var prevActiveTabData = null;
+      var aboutDialog = null;
+
+      $(document).ready(function(){
+        XOXO_APP.initApp();
+
+        $('.next-tab').on('click', function(){
+          XOXO_APP.addTab();
+        });
+
+        txtAreaRemoveSpellCheck();
+
+        $('#txt-json-expected').on('change', function(){
+          XOXO_APP.setTabData(w2ui.tabs.active, $(this).val());
+        });
+
+        initAboutDialog();
+      });
+
+      
+
+
+      function txtAreaRemoveSpellCheck() {
+        $('#txt-json-expected').focusin(function(){
+            $(this).attr('spellcheck', false);
+        });
+
+        $('#txt-json-expected').focusout(function() {
+            $(this).attr('spellcheck', false);
+            //forceSpellcheck($(this));
+        });
+      }
+          
+      function initAboutDialog() {
+        aboutDialog = $("#dialogAbout").dialog({
+                resizable: false,
+                autoOpen: false,
+                height: 300,
+                width: 400,
+                position: {
+                    my: "center",
+                    at: "center",
+                    of: window
+                },
+                modal: true,
+                Cancel: function () {
+                    $(this).dialog("close");
+                }
+            });
+      }
+
+    </script>
+    <script src="scripto.js"></script>
+  </body>
+</html>

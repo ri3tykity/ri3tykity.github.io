@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+}
+
+
+pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+.string { color: green; }
+.number { color: darkorange; }
+.boolean { color: blue; }
+.null { color: magenta; }
+.key { color: red; }
+
+
+
+.main-container {
+  width: 100%;
+  font-size: 12px;
+  background: #00897b;
+  height: 100vh;
+  color: white;
+}
+
+.operations-row {
+  width: 100%;
+  font-size: 12px;
+  background: #f57c00;
+  height: 110vh;
+  color: white;
+}
+
+.top-row {
+}
+
+.tab-container {
+}
+
+#tabs {
+}
+
+.tab-parent {
+
+}
+
+.next-tab {
+}
+
+.top-row > div {
+  float: left;
+  margin: 0 15px;
+  cursor: pointer;
+}
+
+.features-area {
+  width: 100%;
+  display: inline-block;
+}
+
+.features-area > div {
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin: 10px 2px;
+  user-select: none;
+}
+
+.features-area > div:hover {
+  background: green;
+  color: white;
+}
+
+.txtarea-inp {
+  width: 100%;
+  height: 89vh;
+  outline: none;
+  resize: none;
+  background: #f0f0f0;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.hide {
+  display: none;
+}
