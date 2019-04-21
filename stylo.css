@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background: floralwhite;
 }
 
 
@@ -13,11 +14,9 @@ pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
 
 
 .main-container {
-  width: 100%;
-  font-size: 12px;
-  background: #00897b;
-  height: 100vh;
-  color: white;
+  width: 98%;
+  background: transparent;
+  margin: 0 auto;
 }
 
 .operations-row {
@@ -53,6 +52,10 @@ pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
 .features-area {
   width: 100%;
   display: inline-block;
+  font-size: 12px;
+  font-family: Arial;
+  font-weight: bold;
+  margin: 0px 0px 0px 10px;
 }
 
 .features-area > div {
@@ -71,7 +74,7 @@ pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
 
 .txtarea-inp {
   width: 100%;
-  height: 89vh;
+  height: 100%;
   outline: none;
   resize: none;
   background: #f0f0f0;
@@ -81,4 +84,15 @@ pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
 
 .hide {
   display: none;
+}
+
+#tab-content {
+  border: 1px solid #ddd; 
+  border-top: 0px;
+  background: white;
+  color: black;
+  position: absolute;
+  width: 98%;
+  bottom: 5px;
+  top: 75px;
 }

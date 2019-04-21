@@ -22,8 +22,9 @@
           text-shadow: none;
           background: #303030;
           padding: 1em;
-          height: 86vh;
           overflow-y: auto;
+          width: 98%;
+          height: 100%;          
         }
 
         .renderjson>span {
@@ -78,7 +79,8 @@
 
         #error-div {
           position: absolute;
-          top: 25px;
+          top: 30px;
+          border: none;
           right: 10px;
           color: red;
           font-size: 15px;
@@ -87,6 +89,10 @@
         pre {
           outline: none !important;
         }
+
+        .tab-parent {
+          height: 29px;
+        }
     </style>
   </head>
   <body>
@@ -94,32 +100,34 @@
 
       <div id="tabs" class="tab-parent"></div>
 
-      <div id="tab-content" style="height: 94vh; border: 1px solid #ddd; border-top: 0px;background: white;color: black;position: relative;">
-        <div class="features-area">
-          <div class="viewer">View</div>
-          <div class="format">Format</div>
-          <div class="compact">Compact</div>
-          <div class="clear-text" style="display: none;">Clear</div>
-          <div class="share-text">Share</div>
-          <div class="rename-tab">Rename Tab</div>
-          <div class="txt-tab-name" style="display: none;"><input type="text"></div>
-          <div class="about">About</div>
-          <div class="next-tab" title="Add New Tab">+</div>
-        </div>
+      <div class="features-area">
+        <div class="viewer">View</div>
+        <div class="format">Format</div>
+        <div class="compact">Compact</div>
+        <div class="clear-text" style="display: none;">Clear</div>
+        <div class="share-text">Share</div>
+        <div class="rename-tab">Rename Tab</div>
+        <div class="txt-tab-name" style="display: none;"><input type="text"></div>
+        <div class="about">About</div>
+        <div class="next-tab" title="Add New Tab">+</div>
+
+        <p id="error-div"></p>
+      </div>
+
+      <div id="tab-content">
+        
         <!-- <div id="tab-input-data" class="textinput-area"></div> -->
         <textarea name="input-text" id="txt-json-expected" class="txtarea-inp" placeholder="Enter JSON text here"></textarea>
         <div id="view-container" style="display: none;" class="view-json-area"></div>
-        <div id="error-div"></div>
-      </div>
-
-      <div style="text-align: center;padding: 5px;">Powered by <strong>Nature Technologies Pvt. Ltd.</strong></div>
+        
+      </div>    
 
     </div>
 
     <div id="dialogAbout" style="display: none;" title="About">
       <div style="margin-top: 40px;">
         Convert JSON string to readable format.
-        <br>
+        <!-- <br>
         <br>
         This application use following libraries:
         <br>
@@ -127,6 +135,9 @@
         For <strong>Tab View</strong> it uses <a href="http://w2ui.com/web/" style="outline: none;" target="_blank">W2UI</a>
         <br>
         For <strong>JSON View</strong> it uses <a href="http://caldwell.github.io/renderjson/" target="_blank">RenderJSON</a>
+        <br>
+        <br> -->
+        <br>
         <br>
         <br>
         <br>
