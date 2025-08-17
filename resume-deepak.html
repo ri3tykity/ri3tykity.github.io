@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepak Kumar Ojha - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --border-color: #e5e7eb;
+            --accent: #3b82f6;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: white;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 40px;
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: var(--accent);
+        }
+
+        .contact-item::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: var(--text-light);
+            border-radius: 50%;
+        }
+
+        .contact-item:first-child::before {
+            display: none;
+        }
+
+        .skills-summary {
+            background: var(--bg-light);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .skills-summary strong {
+            color: var(--primary-color);
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Experience Items */
+        .experience-item {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 3px solid var(--border-color);
+            transition: border-color 0.3s ease;
+        }
+
+        .experience-item:hover {
+            border-left-color: var(--accent);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .company-role {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .company {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        .role {
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .duration {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .description {
+            color: var(--text-dark);
+            margin: 10px 0;
+            line-height: 1.7;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tech-tag {
+            background: var(--bg-light);
+            color: var(--text-dark);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Education & Training */
+        .education-item, .training-item {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 3px solid var(--border-color);
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+            flex-wrap: wrap;
+        }
+
+        .institution {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .degree {
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: var(--bg-light);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .skill-category p {
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Project Highlight */
+        .project-highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .project-highlight h3 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .project-highlight a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Personal Details */
+        .personal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .personal-item {
+            display: flex;
+            gap: 10px;
+        }
+
+        .personal-item strong {
+            color: var(--text-light);
+            min-width: 120px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .education-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            .container {
+                padding: 20px;
+            }
+
+            .project-highlight {
+                background: var(--bg-light);
+                color: var(--text-dark);
+                border: 2px solid var(--primary-color);
+            }
+
+            .project-highlight a {
+                color: var(--primary-color);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="name">Deepak Kumar Ojha</h1>
+            <div class="contact-info">
+                <a href="tel:+918335855005" class="contact-item">+91-8335855005</a>
+                <a href="mailto:deepak.rkity@gmail.com" class="contact-item">deepak.rkity@gmail.com</a>
+                <a href="https://github.com/ri3tykity" class="contact-item" target="_blank">github.com/ri3tykity</a>
+            </div>
+            <div class="skills-summary">
+                <strong>11+ Years Experience</strong> • .NET 8 • C# • Gen AI (AWS Bedrock) • React • Flutter • Angular • SQL • OpenSearch • DynamoDB • Python • Java
+            </div>
+        </header>
+
+        <!-- Experience Section -->
+        <section class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company-role">
+                        <span class="company">Verisk, Hyderabad</span>
+                        <span class="role">Principal Engineer I</span>
+                    </div>
+                    <span class="duration">Mar 2024 - Present</span>
+                </div>
+                <p class="description">
+                    Leading full-stack development of scalable applications using .NET8 and Angular, deployed on AWS cloud. 
+                    Spearheading GenAI initiatives for internal productivity tools using AWS Bedrock and Lambda. 
+                    Modernizing monolithic architecture to microservices using Docker, AWS Lambda/EKS, and OpenSearch.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">.NET8</span>
+                    <span class="tech-tag">Angular</span>
+                    <span class="tech-tag">AWS Bedrock</span>
+                    <span class="tech-tag">OpenSearch</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">Lambda</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company-role">
+                        <span class="company">Accenture, Hyderabad</span>
+                        <span class="role">Technology Lead</span>
+                    </div>
+                    <span class="duration">Mar 2022 - Mar 2024</span>
+                </div>
+                <p class="description">
+                    Led a team of 9 members in managing 30+ interdependent healthcare and transportation applications. 
+                    Handled architecture design for ASP.NET MVC, WebForms, .NET Core, and Web Services using agile methodology.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">ASP.NET MVC</span>
+                    <span class="tech-tag">.NET Core</span>
+                    <span class="tech-tag">WCF</span>
+                    <span class="tech-tag">REST APIs</span>
+                    <span class="tech-tag">Agile</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company-role">
+                        <span class="company">Infosys LTD, Bhubaneswar</span>
+                        <span class="role">Technology Analyst</span>
+                    </div>
+                    <span class="duration">Jan 2019 - Mar 2022</span>
+                </div>
+                <p class="description">
+                    Managed vessel information and agent details for retail & logistics applications. 
+                    Directly communicated with clients for requirements gathering and feature development.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">ASP.NET MVC</span>
+                    <span class="tech-tag">WebForms</span>
+                    <span class="tech-tag">SQL Server</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company-role">
+                        <span class="company">Nature Technologies PVT. LTD, Kolkata</span>
+                        <span class="role">Software Developer</span>
+                    </div>
+                    <span class="duration">Jul 2014 - Jan 2019</span>
+                </div>
+                <p class="description">
+                    Developed SaaS-based chat software managing subscriber details and subscriptions. 
+                    Created Android application for chat operators alongside desktop and web applications.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">ASP.NET</span>
+                    <span class="tech-tag">Android</span>
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">SQL Server</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal Project Highlight -->
+        <section class="section">
+            <h2 class="section-title">Featured Project</h2>
+            <div class="project-highlight">
+                <h3>SEADOE Mobile App - Virtual Trading Platform</h3>
+                <p>Developed a fully-featured virtual trading and journal app for the Indian Stock Market using Flutter and Firebase Cloud. 
+                Successfully deployed on Play Store with <strong>20K+ users</strong> and <strong>5K+ monthly active users</strong>.</p>
+                <p style="margin-top: 10px;">
+                    <a href="https://play.google.com/store/apps/details?id=com.rkity.seadoe&hl=en-US" target="_blank">View on Play Store →</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Primary Skills</h3>
+                    <p>ASP.NET C#, .NET Core, Gen AI (AWS Bedrock), JavaScript, Flutter, Angular, C#</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Secondary Skills</h3>
+                    <p>Java, Android Development, C++, OpenCV, Node.js, Python</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+                <div class="education-header">
+                    <span class="institution">Academy Of Technology, Kolkata</span>
+                    <span class="duration">Aug 2010 - Jun 2014</span>
+                </div>
+                <p class="degree">B.Tech - Electronics & Communication Engineering (8.12/10)</p>
+            </div>
+            <div class="education-item">
+                <div class="education-header">
+                    <span class="institution">Shree Jain Vidyalaya, Kolkata</span>
+                    <span class="duration">May 2008 - Jun 2010</span>
+                </div>
+                <p class="degree">Higher Secondary - 63.71%</p>
+            </div>
+            <div class="education-item">
+                <div class="education-header">
+                    <span class="institution">Shree Maheshwari Vidyalaya, Kolkata</span>
+                    <span class="duration">May 2008</span>
+                </div>
+                <p class="degree">Madhyamik - 68.77%</p>
+            </div>
+        </section>
+
+        <!-- Training Section -->
+        <section class="section">
+            <h2 class="section-title">Training & Certifications</h2>
+            <div class="training-item">
+                <strong>IBM, Kolkata</strong> - Core Java Programming (4 Weeks, 2013)
+            </div>
+            <div class="training-item">
+                <strong>All India Radio, Kolkata</strong> - National Academy for Broadcasting (4 Weeks, 2012)
+            </div>
+            <div class="training-item">
+                <strong>Academy Of Technology</strong> - Image Processing: Face Detection & Recognition using OpenCV (2013-2014)
+            </div>
+        </section>
+
+        <!-- Personal Details -->
+        <section class="section">
+            <h2 class="section-title">Personal Information</h2>
+            <div class="personal-grid">
+                <div class="personal-item">
+                    <strong>Date of Birth:</strong>
+                    <span>30th November, 1991</span>
+                </div>
+                <div class="personal-item">
+                    <strong>Languages:</strong>
+                    <span>English, Hindi, Bengali</span>
+                </div>
+                <div class="personal-item">
+                    <strong>Interests:</strong>
+                    <span>Solving Sudoku, Music</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
